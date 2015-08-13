@@ -1,0 +1,10 @@
+---
+applications:
+- name: mqtt-demo
+  memory: 512M
+  host: mqtt-demo
+  path: target/mqtt-demo-0.4.0.jar
+  services:
+  - mqtt-demo-db
+  - mqtt-demo-messages
+

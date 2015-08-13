@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+
+/**
+ *  Copyright (c) 2015 Intel Corporation 
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+-->
+<html ng-app="app">
+<head>
+    <title>Intel - Space shuttle demo</title>
+
+    <!-- amCharts javascript sources -->
+    <script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+    <script type="text/javascript" src="http://cdn.amcharts.com/lib/3/themes/black.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- amCharts javascript code -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
+
+</head>
+<body ng-controller="MainController">
+    <div class="header">
+        <img src="/img/logo-intel.png" />
+        <h1>Number of space shuttle anomalies per minute</h1>
+    </div>
+    <div class="timeframe">
+        <div>Select timeframe</div>
+        <label>
+            <input type="radio" ng-model="since" value="7d" name="since" />
+            7 days
+        </label>
+        <br />
+        <label>
+            <input type="radio" ng-model="since" value="1d" name="since" />
+            1 day
+        </label>
+        <br />
+        <label>
+            <input type="radio" ng-model="since" value="1h" name="since" />
+            1 hour
+        </label>
+    </div>
+    <div id="chartdiv" style="" ></div>
+</body>
+</html>

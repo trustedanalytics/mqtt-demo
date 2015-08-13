@@ -1,0 +1,23 @@
+services:
+  store:
+    baseUrl: http://${vcap.services.mqtt-demo-db.credentials.hostname:localhost}
+    apiPort: ${vcap.services.mqtt-demo-db.credentials.ports.8086/tcp:8086}
+    username: root
+    password: root
+    databaseName: mqtt-demo
+    defaultGroupingInterval: 1m
+    defaultTimeLimit: 1h
+  mqtt:
+    hostname: tcp://${vcap.services.mqtt-demo-messages.credentials.hostname:localhost}
+    port: ${vcap.services.mqtt-demo-messages.credentials.port:1883}
+    username: ${vcap.services.mqtt-demo-messages.credentials.username:mqtt-demo}
+    password: ${vcap.services.mqtt-demo-messages.credentials.password:test}
+    clientName: space-shuttle-mqtt-demo
+    topic: space-shuttle/test-data
+  atkscoreengine:
+    baseUrl: http://${vcap.services.atkscoreengine.credentials.baseUrl:localhost}
+
+logging:
+  level:
+    org.trustedanalytics: DEBUG
+
