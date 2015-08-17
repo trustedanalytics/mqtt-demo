@@ -44,6 +44,11 @@ cf push
 ```
 
 #### Add information on scoring engine
+Check if user-provided service atkscoreengine exists, if not - add it to Cloudfoundry:
+```
+cf cups atkscoreengine -p '{"baseUrl":"atk-scoringengine.example.com"}'
+```
+
 There should be information added in environment variables about scoring engine URL. Required variable is baseUrl:
 '''
 {
