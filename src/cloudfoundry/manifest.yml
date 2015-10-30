@@ -3,8 +3,10 @@ applications:
 - name: mqtt-demo
   memory: 512M
   host: mqtt-demo
-  path: target/mqtt-demo-0.4.1-SNAPSHOT.jar
+  path: target/mqtt-demo-${version}.jar
   services:
   - mqtt-demo-db
   - mqtt-demo-messages
   - atkscoreengine
+  env:
+    VERSION: ${version}
