@@ -43,25 +43,14 @@ mvn clean package
 cf push
 ```
 
-#### Add information on scoring engine
-Check if user-provided service atkscoreengine exists, if not - add it to Cloudfoundry:
+#### Set scoring engine
+To set information which scoring engine to use, set environment variable `SE_URL`
 ```
-cf cups atkscoreengine -p '{"baseUrl":"atk-scoringengine.example.com"}'
+cf set-env mqtt-demo SE_URL <scoring engine URL>
+cf restart mqtt-demo
 ```
+**Important note:** the address of scoring engine has to be absolute URL, which means that it has to contain protocol, e.g. `http://scoring-engine.example.com`.
 
-There should be information added in environment variables about scoring engine URL. Required variable is baseUrl:
-'''
-{
-    "credentials": {
-     "baseUrl": "atk-scoringengine.example.com"
-    },
-    "label": "user-provided",
-    "name": "atkscoreengine",
-    "syslog_drain_url": "",
-    "tags": []
-   }
-
-'''
 
 #### Get mosquitto credentials
 After your application is pushed, you can type ```cf env mqtt-demo``` in your terminal. You should see JSON object. The most interesting part is  mosquitto credentials:

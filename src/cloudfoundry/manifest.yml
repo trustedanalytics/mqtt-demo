@@ -7,6 +7,5 @@ applications:
   services:
   - mqtt-demo-db
   - mqtt-demo-messages
-  - atkscoreengine
   env:
     VERSION: ${version}
