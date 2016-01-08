@@ -5,9 +5,9 @@
     <artifactId>mqtt-demo</artifactId>
     <version>0.4.6</version>
     <parent>
-        <groupId>org.trustedanalytics</groupId>
-        <artifactId>trustedanalytics-cloud-parent</artifactId>
-        <version>0.4.1</version>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>1.0.1.RELEASE</version>
     </parent>
     <properties>
         <java.version>1.8</java.version>
@@ -31,6 +31,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
