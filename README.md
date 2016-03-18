@@ -73,11 +73,7 @@ After your application is pushed, you can type ```cf env mqtt-demo``` in your te
 You will need **port**, **username** and **password** to connect to mosquitto instance and ingest data to your application.
 
 #### Install mosquitto clients on your local machine
-```
-sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
-sudo apt-get update						
-sudo apt-get install mosquitto-clients	
-```
+To install Mosquitto on you local machine, follow the instructions here: http://www.eclipse.org/mosquitto/download/
 
 #### Run ingestion script
 In a terminal:
