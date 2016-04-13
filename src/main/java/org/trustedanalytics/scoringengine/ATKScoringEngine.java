@@ -38,32 +38,34 @@ public class ATKScoringEngine {
     public Boolean score(float[] data) {
         String commaSeparatedNumbers = convertToCommaSeparated(data);
         String url = getUrl() + commaSeparatedNumbers;
-        Float f_result;
+        Float result;
         try {
             RestTemplate template = new RestTemplate();
             ResponseEntity<String> response = template.getForEntity(url, String.class);
-            String result = response.getBody();
-            f_result = Float.parseFloat(result);
-            LOG.debug("Score from scoring engine: {}", f_result);
+            String body = response.getBody();
+            result = Float.parseFloat(validateResult(body));
+            LOG.debug("Score from scoring engine: {}", result);
         } catch (Exception ex) {
             LOG.warn("problem with getting scoring result! " + ex.getMessage(), ex);
-            f_result = -100f;
+            result = -100f;
         }
 
-        return f_result == 1.0f;
+        return result.compareTo(1.0f) == 0;
     }
 
-    private String getUrl(){
-        return properties.getBaseUrl() + "/v1/models/DemoModel/score?data=";
+    private String validateResult(String data) {
+        return data.substring(data.indexOf('(') + 1, data.indexOf(')'));
+    }
+
+    private String getUrl() {
+        return properties.getBaseUrl() + "/v1/score?data=";
     }
 
     private String convertToCommaSeparated(float[] data) {
-        List<Float> dataList = Floats.asList(data);
 
-        String commaSeparatedNumbers = dataList.stream()
-            .map(i -> String.format("%.4f", i))
-            .collect(Collectors.joining(","));
-
-        return commaSeparatedNumbers;
+        return Floats.asList(data)
+                .stream()
+                .map(i -> String.format("%.4f", i))
+                .collect(Collectors.joining(","));
     }
 }

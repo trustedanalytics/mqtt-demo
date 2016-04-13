@@ -69,7 +69,7 @@ public class SpaceShuttleRecordCollector
     }
 
     @Override public Function<Map<Double, Double>, Map<Double, Double>> finisher() {
-        return (grouped) -> grouped;
+        return grouped -> grouped;
     }
 
     @Override public Set<Characteristics> characteristics() {

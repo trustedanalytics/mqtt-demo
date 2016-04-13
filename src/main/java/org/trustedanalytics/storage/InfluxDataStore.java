@@ -103,7 +103,7 @@ public class InfluxDataStore implements DataStore {
 
         List<Serie> queryResult = store.query(databaseName, query, TimeUnit.MILLISECONDS);
         LOG.debug("{} series read", queryResult.size());
-        if (queryResult.size() == 0) {
+        if (queryResult.isEmpty()) {
             return null;
         }
 
