@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/trustedanalytics/mqtt-demo.svg?branch=master)](https://travis-ci.org/trustedanalytics/mqtt-demo)
 [![Dependency Status](https://www.versioneye.com/user/projects/57236d5dba37ce004309f433/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57236d5dba37ce004309f433)
 
 # mqtt-demo
