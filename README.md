@@ -93,30 +93,14 @@ vim ingest_mqtt.sh
 
 ## Local development
 #### Prerequisites
-* InfluxDB
-  * You need to install and run it locally. You can find instruction here: http://influxdb.com/docs/v0.8/introduction/installation.html
-  ```
-  wget http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb
-  sudo dpkg -i influxdb_latest_amd64.deb
-  ```         
-  Configuration file is located at ```/opt/influxdb/shared/config.toml``` or ```/usr/local/etc/influxdb.conf```
-  There you can check or change ports used by InfluxFB. By default there will be 8083, 8086, 8090, and 8099.
+##### InfluxDB
+  You can find instruction how to install and run InfluxDB here: http://influxdb.com/docs/v0.8/introduction/installation.html
+  
+##### Mosquitto
+  1. Install mosquitto following the instructions here: 
+  http://www.eclipse.org/mosquitto/download/
 
-  To start InfluxDB type: ```sudo /etc/init.d/influxdb start```
-  
-  You can then access admin panel, by default accessible at: ```localhost:8083```
-  
-  After going there for first time, remember to create username and password. ```root:root``` seems to be a good choice.
-  
-* Mosquitto
- * Install:
-  ```
-  sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
-  sudo apt-get update		
-  sudo apt-get install mosquitto					
-  sudo apt-get install mosquitto-clients	
-  ```
- * Secure your local instance:
+  1. Secure your local instance:
   ```
   cd /etc/mosquitto/
   mosquitto_passwd -c passwordfile {username - default one is "mqtt-demo"}
