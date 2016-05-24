@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.trustedanalytics</groupId>
     <artifactId>mqtt-demo</artifactId>
-    <version>0.4.10</version>
+    <version>0.4.11</version>
     <parent>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-parent</artifactId>
@@ -62,12 +62,17 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
-                    <header>license/license_header.txt</header>
+                    <header>license/license_header_2016.txt</header>
+		     <validHeaders>
+                        <validHeader>license/license_header_2015.txt</validHeader>
+                        <validHeader>license/license_header_2016.txt</validHeader>
+                    </validHeaders>
                     <includes>
                         <include>src/**/*.java</include>
                         <include>tools/*.sh</include>
                         <include>tools/*.py</include>
                         <include>license/*.sh</include>
+			<include>pack.sh</include>
                     </includes>
                     <mapping>
                         <java>JAVADOC_STYLE</java>
